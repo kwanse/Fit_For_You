@@ -12,6 +12,13 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode
 public class Image {
 
+    private String originalName;
+    private String storeName;
     private String imageUrl;
 
+    public Image(String originalName, String storeName, String imageUrl) {
+        this.originalName = originalName;
+        this.storeName = storeName;
+        this.imageUrl = imageUrl;
+    }
 }

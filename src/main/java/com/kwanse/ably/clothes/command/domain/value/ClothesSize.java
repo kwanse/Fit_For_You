@@ -1,4 +1,4 @@
-package com.kwanse.ably.clothes.command.domain;
+package com.kwanse.ably.clothes.command.domain.value;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;

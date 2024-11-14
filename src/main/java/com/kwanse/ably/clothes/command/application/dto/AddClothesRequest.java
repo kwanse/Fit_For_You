@@ -1,16 +1,18 @@
-package com.kwanse.ably.clothes.ui;
+package com.kwanse.ably.clothes.command.application.dto;
 
-import com.kwanse.ably.clothes.command.domain.*;
+import com.kwanse.ably.clothes.command.domain.Clothes;
+import com.kwanse.ably.clothes.command.domain.value.ClothesSize;
+import com.kwanse.ably.clothes.command.domain.value.Color;
+import com.kwanse.ably.clothes.command.domain.value.Seller;
+import com.kwanse.ably.common.model.Category;
 import com.kwanse.ably.common.model.Money;
-import com.kwanse.ably.member.MemberId;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.math.BigDecimal;
 import java.util.List;
 
-import static com.kwanse.ably.clothes.command.ProductConst.*;
+import static com.kwanse.ably.clothes.command.ClothesConst.*;
 
 public record AddClothesRequest(
 
@@ -30,9 +32,6 @@ public record AddClothesRequest(
 
         String sellerName,
 
-        @Size(max = MAX_IMAGE_SIZE)
-        List<MultipartFile> images,
-
         @Size(max = MAX_CLOTHES_COLOR)
         List<String> colors,
 
@@ -42,8 +41,7 @@ public record AddClothesRequest(
 
     public Clothes to() {
 
-        MemberId memberId = new MemberId(sellerId);
-        Seller seller = new Seller(memberId, sellerName);
+        Seller seller = new Seller(sellerId, sellerName);
 
         List<Color> colorList = colors.stream()
                 .map(Color::new)

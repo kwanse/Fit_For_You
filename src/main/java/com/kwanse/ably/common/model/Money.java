@@ -1,5 +1,6 @@
 package com.kwanse.ably.common.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
@@ -14,6 +15,7 @@ import java.math.BigDecimal;
 @EqualsAndHashCode
 public class Money {
 
+    @Column(name = "money")
     private BigDecimal value;
 
     public Money(BigDecimal value) {
