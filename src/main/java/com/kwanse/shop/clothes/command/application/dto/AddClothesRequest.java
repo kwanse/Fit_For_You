@@ -9,7 +9,8 @@ import jakarta.validation.constraints.Size;
 
 import java.math.BigDecimal;
 
-import static com.kwanse.shop.clothes.ClothesConst.*;
+import static com.kwanse.shop.clothes.ClothesConst.MAX_TITLE_SIZE;
+import static com.kwanse.shop.clothes.ClothesConst.MIN_TITLE_SIZE;
 
 public record AddClothesRequest(
 

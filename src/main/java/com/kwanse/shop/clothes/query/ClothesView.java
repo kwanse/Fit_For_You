@@ -2,10 +2,12 @@ package com.kwanse.shop.clothes.query;
 
 import com.kwanse.shop.clothes.command.domain.Clothes;
 import com.kwanse.shop.clothes.command.domain.ClothesItem;
-import com.kwanse.shop.clothes.command.domain.value.*;
+import com.kwanse.shop.clothes.command.domain.value.ClothesInfo;
+import com.kwanse.shop.clothes.command.domain.value.ClothesSize;
+import com.kwanse.shop.clothes.command.domain.value.Color;
+import com.kwanse.shop.clothes.command.domain.value.Seller;
 import com.kwanse.shop.common.model.Image;
-import com.kwanse.shop.common.model.Money;
-import jakarta.persistence.*;
+import jakarta.persistence.Id;
 import lombok.Getter;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -24,12 +26,6 @@ public class ClothesView {
     private Long salesVolume;
 
     private ClothesInfo clothesInfo;
-    /*private String title;
-    private String description;
-    private Money price;
-    private Category category;*/
-
-
     private Seller seller;
 
     private List<Image> images;
@@ -45,11 +41,6 @@ public class ClothesView {
         this.salesVolume = clothes.getSalesVolume();
 
         this.clothesInfo = clothes.getClothesInfo();
-        /*this.title = clothes.getClothesInfo().getTitle();
-        this.description = clothes.getClothesInfo().getDescription();
-        this.price = clothes.getClothesInfo().getPrice();
-        this.category = clothes.getClothesInfo().getCategory();*/
-
         this.seller = clothes.getSeller();
         this.images = clothes.getImages();
 
